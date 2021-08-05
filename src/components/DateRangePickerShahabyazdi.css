@@ -1,0 +1,27 @@
+.DateRangeInput {
+  padding: 0px;
+}
+
+.DateRangeInput > input {
+  margin-top: 0px;
+  /* // display: "block", */
+  width: 260px;
+  /* // width: "100%",
+    // height: "20px",
+    // padding: "6px, 12px",
+    // fontSize: "15px",
+    // lineHeight: 1.42857143,
+    // color: "#39566b",
+    // backgroundColor: "#fff",
+    // backgroundImage: "none",
+    // border: "1px solid #ccc", */
+  border-radius: 0px;
+  outline-width: 0;
+}
+
+@media (max-width: 850px) {
+  .DateRangeInput > input {
+    width: 450px;
+    border-radius: 5px;
+  }
+}

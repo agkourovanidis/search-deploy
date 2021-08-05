@@ -1,0 +1,17 @@
+.footer {
+    /* position: fixed; */
+    /* position: sticky; */
+    bottom: 0;
+    /* z-index: 100; */
+    width: 100%;
+    border-top: 1px solid lightgray;
+    background-color: #f7f7f7;
+    text-align: center;
+
+    padding-bottom: 3px;
+}
+
+.footer > p {
+    /* padding: 5px; */
+    font-size: 14px;
+}
