@@ -181,7 +181,7 @@ label {
   }
 
   .btn-search {
-    width: 421px;
+    width: 422px;
     /* width: 461px; */
     border-radius: 5px;
     margin: 0px;
@@ -191,11 +191,28 @@ label {
 
 @media (max-width: 450px) {
   .header {
+
+  /* display: flex; */
+  justify-content: left;
+  /* align-items: center; */
+
+  padding-left: 10px;
+
+  position: unset;
+  /* position: sticky; */
+  top: 0;
+  background-color: white;
+  /* z-index: 100; */
+  width: fit-content;
+  box-shadow: 0px 1px 13px -9px rgba(0, 0, 0, 0.75);
+
+  }
+  /* .header {
     padding: 0px;
     position: unset;
     justify-content: left;
     width: fit-content;
-  }
+  } */
 
   /* .searchPage {
       justify-content: left;
