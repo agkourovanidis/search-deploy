@@ -16,6 +16,7 @@ function SearchPage() {
         <Button variant="outlined">More filters</Button>
       </div> */}
       <div>
+      {/* <div className="column"> */}
         <SearchResult
           img="https://cdn.mouzenidis-travel.ru/static/userfiles/hotels/pictureshd/8702/53696.jpeg?w=640&h=480&mode=crop&quality=75"
           location="Fourka, Chalkidiki-Kassandra, Greece"
@@ -32,6 +33,8 @@ function SearchPage() {
           checkIn="05 Sep 21 for 7 nights"
           guests="2 adults and 1 child"
         />
+        {/* </div>
+        <div className="column"> */}
         <SearchResult
           img="https://cdn.mouzenidis-travel.ru/static/userfiles/hotels/original/111/111_julia-hotel_188235.jpeg?w=640&h=480&mode=crop&quality=75"
           location="Fourka, Chalkidiki-Kassandra, Greece"
@@ -48,6 +51,8 @@ function SearchPage() {
           checkIn="05 Sep 21 for 7 nights"
           guests="2 adults and 1 child"
         />
+        {/* </div>
+        <div className="column"> */}
         <SearchResult
           img="https://cdn.mouzenidis-travel.ru/static/userfiles/hotels/original/6160954/6160954_dixkjij0.x1r.jpg?w=640&h=480&mode=crop&quality=75"
           location="Fourka, Chalkidiki-Kassandra, Greece"
@@ -64,6 +69,8 @@ function SearchPage() {
           checkIn="05 Sep 21 for 7 nights"
           guests="2 adults and 1 child"
         />
+        {/* </div>
+        <div className="column"> */}
         <SearchResult
           img="https://cdn.mouzenidis-travel.ru/static/userfiles/hotels/original/6133297/6133297_greek-pride-hotel-apartments_195698.jpg?w=640&h=480&mode=crop&quality=75"
           location="Fourka, Chalkidiki-Kassandra, Greece"
@@ -80,6 +87,8 @@ function SearchPage() {
           checkIn="05 Sep 21 for 7 nights"
           guests="2 adults and 1 child"
         />
+        {/* </div>
+        <div className="column"> */}
         <SearchResult
           img="https://cdn.mouzenidis-travel.ru/static/userfiles/hotels/original/6192491/6192491_nnltwk3gd5r..jpg?w=640&h=480&mode=crop&quality=75"
           location="Fourka, Chalkidiki-Kassandra, Greece"
@@ -96,6 +105,8 @@ function SearchPage() {
           checkIn="05 Sep 21 for 7 nights"
           guests="2 adults and 1 child"
         />
+        {/* </div>
+        <div className="column"> */}
         <SearchResult
           img="https://cdn.mouzenidis-travel.ru/static/userfiles/hotels/original/6135529/6135529_bhz53cad.gao.jpg?w=640&h=480&mode=crop&quality=75"
           location="Fourka, Chalkidiki-Kassandra, Greece"
@@ -112,6 +123,8 @@ function SearchPage() {
           checkIn="05 Sep 21 for 7 nights"
           guests="2 adults and 1 child"
         />
+        {/* </div>
+        <div className="column"> */}
         <SearchResult
           img="https://cdn.mouzenidis-travel.ru/static/userfiles/hotels/original/112/112_ztv1njow.2yy.jpg?w=640&h=480&mode=crop&quality=75"
           location="Fourka, Chalkidiki-Kassandra, Greece"
@@ -128,6 +141,7 @@ function SearchPage() {
           checkIn="05 Sep 21 for 7 nights"
           guests="2 adults and 1 child"
         />
+        {/* </div> */}
       </div>
     </div>
   );

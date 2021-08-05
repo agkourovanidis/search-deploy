@@ -175,14 +175,30 @@ label {
   .home__section > form > section > div > input {
     margin-left: 0px;
     padding-left: 5px;
-    width: 445px;
+    width: 405px;
+    /* width: 445px; */
     border-radius: 5px;
   }
 
   .btn-search {
-    width: 461px;
+    width: 421px;
+    /* width: 461px; */
     border-radius: 5px;
     margin: 0px;
   }
 }
 /*#endregion home*/
+
+@media (max-width: 450px) {
+  .header {
+    padding: 0px;
+    position: unset;
+    justify-content: left;
+    width: fit-content;
+  }
+
+  /* .searchPage {
+      justify-content: left;
+      width: fit-content;
+  } */
+}
