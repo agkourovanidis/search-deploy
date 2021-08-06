@@ -40,15 +40,15 @@
 
 .drp-list {
   /* box-shadow: 1px -1px 10px rgba(0, 0, 0, 0.075) !important; */
-  box-shadow: 2px 2px 2px -1px #39566b;
-  /* box-shadow: 0 0 6px #404050 !important; */
+  /* box-shadow: 2px 2px 2px -1px #39566b; */
+  box-shadow: 0 0 6px #404050 !important;
 
   width: 175px;
   margin-top: 35px;
   justify-content: space-between;
-  /* background-color: white; */
+  background-color: white;
   /* background-color: #39566b; */
-  background-color: #ebf1f6;
+  /* background-color: #ebf1f6; */
 
   font-size: 16px;
   /* border: 1px solid #ccc; */
