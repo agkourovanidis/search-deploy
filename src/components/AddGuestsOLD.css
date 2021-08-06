@@ -65,43 +65,12 @@
   /* color: #fff; */
   /* color: #39566b; */
 }
-.drp-list-adults-input{
-  display: flex;
+.drp-list > input {
   width: 140px;
   margin-left: 10px;
   margin-bottom: 10px;
-  /* padding-left: 10px; */
-
-  /* border: solid red 1px; */
-}
-.drp-list-adults-input>button{
-  margin: 0;
-  height: inherit;
-  border-radius: 0;
-  /* font-size: 18px; */
-  font-weight: 600; 
-}
-.drp-list-adults-input>button:first-of-type{
-border-top-left-radius: 5px;
-border-bottom-left-radius: 5px;
-}
-.drp-list-adults-input>button:last-of-type{
-border-top-right-radius: 5px;
-border-bottom-right-radius: 5px;
-}
-.drp-list-adults-input > input {
-  /* width: 140px;
-  margin-left: 10px;
-  margin-bottom: 10px;
-  padding-left: 10px; */
-
   padding-left: 10px;
-  border-radius: 0px;
-  outline-width: 0;
-  width: 100%;
-  /* width: 90px; */
 }
-
 .drp-list > div > div > select {
   width: 140px;
   margin-left: 10px;
@@ -138,9 +107,9 @@ text-align: center;
     /* width: 460px; */
   }
 
-  .drp-list-adults-input{
+  .drp-list > input {
     width: 385px;
-    /* border: solid red 1px; */
+    /* width: 425px; */
   }
 
   .drp-list > div > div > select {

@@ -132,7 +132,7 @@ export default class Header extends Component {
                 {/* //вариант02 календаря */}
                 <div>
                   {/* <label htmlFor="dateRangePickShakh">Arrival-Departure Dates:</label> */}
-                  <DateRangePickerShahabyazdi funck={this.getDatesFromChild} />
+                  <DateRangePickerShahabyazdi funck={this.getDatesFromChild} required />
                   {/* <h6>SendStartDate: {JSON.stringify(this.state.rdrpStartDate)}</h6>
               <h6>SendEndDate: {JSON.stringify(this.state.rdrpEndDate)}</h6> */}
                 </div>

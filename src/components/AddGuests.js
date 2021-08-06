@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import onClickOutside from "react-onclickoutside";
-import '../components/AddGuests.css'
+import "../components/AddGuests.css";
 
 const clickOutsideConfig = {
-  handleClickOutside: () => AddGuests.handleClickOutside
+  handleClickOutside: () => AddGuests.handleClickOutside,
 };
 
 function AddGuests(props) {
@@ -13,34 +13,42 @@ function AddGuests(props) {
   const [dropdowmOpen, setdropdowmOpen] = useState(false);
 
   const toggle = () => {
-    setDataForParent(); 
+    setDataForParent();
     setdropdowmOpen(!dropdowmOpen);
-  }
+  };
 
   AddGuests.handleClickOutside = () => {
     setdropdowmOpen(false);
-  }
+  };
 
-  const setDataForParent=()=>{
+  const setDataForParent = () => {
     //// послаем данные родителю
-    props.funk(
-      numOfAdult,
-      numOfChildren,
-      (stringChildrenAges + stringAdultAges)
-    ); 
+    props.funk(numOfAdult, numOfChildren, stringChildrenAges + stringAdultAges);
+  };
+
+  function decrementValue(e) {
+    // e.preventDefault();
+    var fieldName = e.target.fieldName.data("field");
+    var parent = e.target.closest("div");
+    var currentVal = parseInt(
+      parent.find("input[name=" + fieldName + "]").val(),
+      10
+    );
+
+    if (!isNaN(currentVal) && currentVal > 0) {
+      parent.find("input[name=" + fieldName + "]").val(currentVal - 1);
+    } else {
+      parent.find("input[name=" + fieldName + "]").val(0);
+    }
   }
 
-  const fillAdultsData = (e) => {
-    //// запретить ввод нуля в поле
-    // e.target.value = e.target.value.replace(/^0/, ""); // запрещает конкретно ноль
-    let amount = parseFloat(e.target.value);
-    if (isNaN(amount) || amount < 0 || e.target.value[0] === "0") {
-      amount = "1";
-    }
-    e.target.value = amount;
+  function handleMinus() {
+    let amount = parseFloat(numOfAdult);
 
-    //// получить кол-во взрослых из поля
-    setnumOfAdult(e.target.value);
+    if (amount > 1) {
+      amount-=1;
+    }
+    setnumOfAdult(amount);
 
     //// проставить возраста взрослых на основе кол-ва
     let list = [];
@@ -48,14 +56,92 @@ function AddGuests(props) {
       list.push("99");
     }
     setadultAgesList(list);
-
-    //// послаем данные родителю
+    //// посылаем данные родителю
     props.funk(
-      (e.target.value),
-      (childrenAgesList.length - 1),
-      (stringChildrenAges + list.join(","))
-    ); 
-  };
+      // e.target.value,
+      amount,
+      childrenAgesList.length - 1,
+      stringChildrenAges + list.join(",")
+    );
+  }
+  function handlePlus() {
+    let amount = parseFloat(numOfAdult);
+
+    if (amount < 15) {
+      amount+=1;
+    }
+    setnumOfAdult(amount);
+
+    //// проставить возраста взрослых на основе кол-ва
+    let list = [];
+    for (let i = 0; i < amount; ++i) {
+      list.push("99");
+    }
+    setadultAgesList(list);
+    //// посылаем данные родителю
+    props.funk(
+      // e.target.value,
+      amount,
+      childrenAgesList.length - 1,
+      stringChildrenAges + list.join(",")
+    );
+  }
+  function fillAdultsData(e) {
+    e.preventDefault();
+    // const re = /^[0-9\b]+$/;
+    // if (e.target.value === "" || re.test(e.target.value)) {
+    //   const x = Number(e.target.value);
+    //   setnumOfAdult(x);
+    // }
+    //// запретить ввод нуля в поле
+    // e.target.value = e.target.value.replace(/^0/, ""); // запрещает конкретно ноль
+    let amount = parseFloat(e.target.value);
+    if (isNaN(amount) || amount < 0 || e.target.value[0] === "0") {
+      amount = "1";
+    } else if (amount > 15) {
+      amount = "15";
+    }
+    // e.target.value = amount;
+    setnumOfAdult(amount);
+
+    //// получить кол-во взрослых из поля
+    // setnumOfAdult(e.target.value);
+    //// проставить возраста взрослых на основе кол-ва
+    let list = [];
+    for (let i = 0; i < amount; ++i) {
+      list.push("99");
+    }
+    setadultAgesList(list);
+    //// посылаем данные родителю
+    props.funk(
+      e.target.value,
+      childrenAgesList.length - 1,
+      stringChildrenAges + list.join(",")
+    );
+  }
+  // const fillAdultsData = (e) => {
+  // //// запретить ввод нуля в поле
+  // // e.target.value = e.target.value.replace(/^0/, ""); // запрещает конкретно ноль
+  // let amount = parseFloat(e.target.value);
+  // if (isNaN(amount) || amount < 0 || e.target.value[0] === "0") {
+  //   amount = "1";
+  // }
+  // e.target.value = amount;
+  // //// получить кол-во взрослых из поля
+  // setnumOfAdult(e.target.value);
+  // //// проставить возраста взрослых на основе кол-ва
+  // let list = [];
+  // for (let i = 0; i < amount; ++i) {
+  //   list.push("99");
+  // }
+  // setadultAgesList(list);
+  // //// посылаем данные родителю
+  // props.funk(
+  //   e.target.value,
+  //   childrenAgesList.length - 1,
+  //   stringChildrenAges + list.join(",")
+  // );
+  // };
 
   const stringAdultAges = adultAgesList.join(",");
 
@@ -90,21 +176,22 @@ function AddGuests(props) {
     setchildrenAgesList(values);
 
     //// послаем данные родителю
-    if(childrenAgesList.length === index + 1 )
-    { props.funk(
-      numOfAdult,
-      values.length,
-      (values
-        .map(({ selectedAge }) => `${selectedAge}`)
-        .join(",") +','+ stringAdultAges)
-    )}
-    else{props.funk(
-      numOfAdult,
-      values.length-1,
-      (values
-        .map(({ selectedAge }) => `${selectedAge}`)
-        .join(",") + stringAdultAges)
-    )}; 
+    if (childrenAgesList.length === index + 1) {
+      props.funk(
+        numOfAdult,
+        values.length,
+        values.map(({ selectedAge }) => `${selectedAge}`).join(",") +
+          "," +
+          stringAdultAges
+      );
+    } else {
+      props.funk(
+        numOfAdult,
+        values.length - 1,
+        values.map(({ selectedAge }) => `${selectedAge}`).join(",") +
+          stringAdultAges
+      );
+    }
 
     childrenAgesList.length === index + 1 && handleAddInput();
   };
@@ -119,11 +206,10 @@ function AddGuests(props) {
     //// послаем данные родителю
     props.funk(
       numOfAdult,
-      list.length-1,
-      (list
-        .map(({ selectedAge }) => `${selectedAge}`)
-        .join(",") + stringAdultAges)
-    ); 
+      list.length - 1,
+      list.map(({ selectedAge }) => `${selectedAge}`).join(",") +
+        stringAdultAges
+    );
   };
 
   const numOfChildren = childrenAgesList.length - 1;
@@ -147,12 +233,12 @@ function AddGuests(props) {
           (numOfChildren === 1 ? "child" : "children");
 
     finText = numOfAdult + " " + adultTxt + childTxt;
-    
+
     return finText;
   };
 
   return (
-    <div className='addguests'>
+    <div className="addguests">
       <div className="drp-wrapper">
         <div
           className="drp-header"
@@ -168,24 +254,32 @@ function AddGuests(props) {
         </div> */}
         </div>
         {dropdowmOpen && (
-          <div className="drp-list" >
-            <label>
-              Adults:
-            </label>
-            <input
-              id="Adults"
-              name="Adults"
-              type="number"
-              placeholder="Adults"
-              min="1"
-              max="15"
-              defaultValue={numOfAdult}
-              onChange={(e) => fillAdultsData(e)}
-            />
+          <div className="drp-list">
+            <label>Adults:</label>
+            <div className="drp-list-adults-input">
+              {/* <button type='button' onClick={() => fillDicreaseAdults()}>-</button> */}
+              <button type="button" onClick={() => handleMinus()}>
+                -
+              </button>
+              <input
+                id="Adults"
+                name="Adults"
+                // type="number"
+                type="text"
+                placeholder="Adults"
+                // min="1"
+                // max="15"
+                // defaultValue={numOfAdult}
+                value={numOfAdult}
+                // onChange={(e) => fillAdultsData(e)}
+                onChange={(e) => fillAdultsData(e)}
+              />
+              <button type="button" onClick={() => handlePlus()}>
+                +
+              </button>
+            </div>
 
-            <label>
-              Сhildren up to 16 y.o.:
-            </label>
+            <label>Сhildren up to 16 y.o.:</label>
             {childrenAgesList.map((item, i) => (
               <div key={i}>
                 <div style={{ display: "flex" }}>
@@ -222,6 +316,14 @@ function AddGuests(props) {
                 </div>
               </div>
             ))}
+            <div className="close_button">
+              <button
+                // onClick={()=>setdropdowmOpen(false)}
+                onClick={() => toggle(!dropdowmOpen)}
+              >
+                Close
+              </button>
+            </div>
           </div>
         )}
       </div>
