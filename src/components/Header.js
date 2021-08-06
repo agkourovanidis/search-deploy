@@ -87,15 +87,18 @@ export default class Header extends Component {
 
     return (
       <div className="header">
+        <div className="header__icon">
         <Link to="/">
           <img
-            className="header__icon"
+            // className="header__icon"
+            className='header__icon_img'
             //   src="https://i.pinimg.com/originals/3c/bf/be/3cbfbe148597341fa56f2f87ade90956.png"
             src={logo}
             alt=""
             // height="70px"
           />
         </Link>
+        </div>
 
         <div className="header__center">
           <div className="home__section">
