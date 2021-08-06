@@ -58,26 +58,26 @@ function DateRangePickerShahabyazdi(props) {
         minDate={addDays(new Date(), 3)}
         
         //// двойной календарь
-        // numberOfMonths={2}
-        numberOfMonths={1}
+        numberOfMonths={2}
+        // numberOfMonths={1}
         
         weekStartDayIndex={1}
 
         //// для нижнего блока
-        // plugins={[
-        //   <Footer
-        //     position="bottom"
-        //     format="DD.MM.YYYY"
-        //     names={{
-        //       selectedDates: "Stay Dates:",
-        //       from: "Check In:",
-        //       to: "Check Out:",
-        //       selectDate: "select",
-        //       close: "Close",
-        //       separator: " ",
-        //     }}
-        //   />,
-        // ]}
+        plugins={[
+          <Footer
+            position="bottom"
+            format="DD.MM.YYYY"
+            names={{
+              // selectedDates: "Stay Dates:",
+              // from: "Check In:",
+              // to: "Check Out:",
+              // selectDate: "select",
+              close: "Close",
+              // separator: " ",
+            }}
+          />,
+        ]}
         weekDays={["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]}
         months={[
           "Jan",
