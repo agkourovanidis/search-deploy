@@ -41,6 +41,9 @@ function DateRangePickerShahabyazdi(props) {
         name="dateRangePickShakh"
         layout='prime'
 
+        calendarPosition='bottom-start'
+        fixRelativePosition='true'
+
         value={dateRange}
         onChange={handleChange}
         onClose={() =>
@@ -67,14 +70,21 @@ function DateRangePickerShahabyazdi(props) {
         plugins={[
           <Footer
             position="bottom"
-            format="DD.MM.YYYY"
+            // format="DD.MM.YYYY"
+            format="DD MMM. YYYY"
             names={{
               // selectedDates: "Stay Dates:",
               // from: "Check In:",
               // to: "Check Out:",
               // selectDate: "select",
-              close: "Close",
+              // close: "Close",
               // separator: " ",
+              selectedDates: "Stay Dates:",
+              from: "In:",
+              to: "Out:",
+              selectDate: "",
+              close: "Close",
+              separator: " ",
             }}
           />,
         ]}
@@ -105,6 +115,8 @@ function DateRangePickerShahabyazdi(props) {
         className="rmdp-prime"
 
         required
+
+        mainPosition="bottom"
       >
         <button
           // style={{
