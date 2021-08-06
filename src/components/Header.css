@@ -146,11 +146,11 @@ label {
 
 /*#region media_2 850*/
 @media (max-width: 850px) {
-  /* .header {
-    padding: 0px;
+  .header {
+    /* padding: 0px; */
     position: unset;
-    justify-content: center;
-  } */
+    /* justify-content: center; */
+  }
 
   /* .header__icon {
     margin-left: 0px;
