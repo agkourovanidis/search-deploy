@@ -4,7 +4,8 @@ import DatePicker, { getAllDatesInRange } from "react-multi-date-picker";
 import Footer from "react-multi-date-picker/plugins/range_picker_footer";
 import "./DateRangePickerShahabyazdi.css";
 
-import "react-multi-date-picker/styles/backgrounds/bg-my.css"
+// import "react-multi-date-picker/styles/backgrounds/bg-my.css"
+// import "react-multi-date-picker/styles/backgrounds/bg-dark.css"
 
 function addDays(date, days) {
   var result = new Date(date);
@@ -111,7 +112,9 @@ function DateRangePickerShahabyazdi(props) {
 
           return props;
         }}
+        // className="bg-my"
         className="bg-my"
+
 
         required
 

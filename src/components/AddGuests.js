@@ -26,29 +26,20 @@ function AddGuests(props) {
     props.funk(numOfAdult, numOfChildren, stringChildrenAges + stringAdultAges);
   };
 
-  function decrementValue(e) {
-    // e.preventDefault();
-    var fieldName = e.target.fieldName.data("field");
-    var parent = e.target.closest("div");
-    var currentVal = parseInt(
-      parent.find("input[name=" + fieldName + "]").val(),
-      10
-    );
-
-    if (!isNaN(currentVal) && currentVal > 0) {
-      parent.find("input[name=" + fieldName + "]").val(currentVal - 1);
-    } else {
-      parent.find("input[name=" + fieldName + "]").val(0);
-    }
-  }
+  //// создаем reference для поля чтобы иметь к нему доступ без e.target
+  let adultsInput = React.createRef();
 
   function handleMinus() {
     let amount = parseFloat(numOfAdult);
 
     if (amount > 1) {
-      amount-=1;
+      amount -= 1;
     }
-    setnumOfAdult(amount);
+
+    // setnumOfAdult(amount);
+    //// передать полю, а затем получить кол-во взрослых из поля (делаем таким образом чтобы проверялась надпись adult или adults)
+    adultsInput.current.value = amount;
+    setnumOfAdult(adultsInput.current.value);
 
     //// проставить возраста взрослых на основе кол-ва
     let list = [];
@@ -68,9 +59,13 @@ function AddGuests(props) {
     let amount = parseFloat(numOfAdult);
 
     if (amount < 15) {
-      amount+=1;
+      amount += 1;
     }
-    setnumOfAdult(amount);
+    // setnumOfAdult(amount);
+    //// передать полю, а затем получить кол-во взрослых из поля (делаем таким образом чтобы проверялась надпись adult или adults)
+    adultsInput.current.value = amount;
+    setnumOfAdult(adultsInput.current.value);
+
 
     //// проставить возраста взрослых на основе кол-ва
     let list = [];
@@ -101,11 +96,11 @@ function AddGuests(props) {
     } else if (amount > 15) {
       amount = "15";
     }
-    // e.target.value = amount;
-    setnumOfAdult(amount);
 
-    //// получить кол-во взрослых из поля
-    // setnumOfAdult(e.target.value);
+    //// передать полю, а затем получить кол-во взрослых из поля (делаем таким образом чтобы проверялась надпись adult или adults)
+    e.target.value = amount;
+    setnumOfAdult(e.target.value);
+
     //// проставить возраста взрослых на основе кол-ва
     let list = [];
     for (let i = 0; i < amount; ++i) {
@@ -262,6 +257,8 @@ function AddGuests(props) {
                 -
               </button>
               <input
+
+                ref={adultsInput}
                 id="Adults"
                 name="Adults"
                 // type="number"

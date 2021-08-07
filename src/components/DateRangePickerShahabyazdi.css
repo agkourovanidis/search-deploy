@@ -1,3 +1,178 @@
+/* #region Сам календарь */
+/* предопределенные цвета */
+/* :root {
+  --rmdp-primary-green: #3d9970;
+  --rmdp-secondary-green: #87ad92;
+  --rmdp-shadow-green: #87ad92;
+  --rmdp-today-green: #01ff70;
+  --rmdp-hover-green: #2ecc40;
+  --rmdp-deselect-green: #39795c;
+} */
+
+/* цвет стрелки соединяющей календарь */
+.bg-my.ep-arrow::after {
+  /* box-shadow: 0 0 6px #404050 !important; */
+  box-shadow: 0 0 6px #39566b !important;
+
+  /* background-color: #312f2f; */
+}
+/* границы стрелки соединяющей календарь */
+/* .rmdp-container .bg-my.ep-arrow[direction="top"] {
+  border-bottom: 1px solid #39566b;
+} */
+/* .rmdp-container .bg-dark.ep-arrow[direction="left"] {
+  border-right: 1px solid #39566b;
+}
+.rmdp-container .bg-dark.ep-arrow[direction="right"] {
+  border-left: 1px solid #39566b;
+} */
+/* .rmdp-container .bg-dark.ep-arrow[direction="bottom"] {
+  border-top: 1px solid #39566b;
+} */
+
+/* весь календарь с нижним блоком */
+.bg-my.rmdp-wrapper {
+  /* border: 1px solid #8798ad; */
+  border: 1px solid #39566b;
+  
+  /* background-color: #312f2f; */
+}
+/* весь календарь без нижнего блока */
+.bg-my .rmdp-calendar {
+  padding: 0 !important;
+  /* border: 3px solid red;
+  background-color: #484b69; */
+}
+
+/* шапка календаря с месяцами (линия внизу) */
+.bg-my .rmdp-header {
+  /* border-bottom: 1px solid #8798ad; */
+  border-bottom: 1px solid #39566b;
+  margin-top: 0 !important;
+
+  /* border-bottom: 3px solid red;
+  background-color: blue; */
+}
+
+/* цвет линии внизу до Stay Dates */
+.bg-my .rmdp-border-bottom {
+  /* border-bottom: 1px solid #8798ad !important; */
+  border-bottom: 1px solid #39566b !important;
+
+  /* border-bottom: 3px solid red; */
+}
+
+/* область с месяцами и годами в шапке и в нижнем блоке */
+.bg-my .rmdp-header-values {
+  color:#39566b;
+}
+
+/* цвет дней недели и надписи в нижней панели */
+.bg-my .rmdp-week-day {
+  /* color: var(--rmdp-primary-green); */
+  color: #39566b;
+}
+
+/* стрелки влево и вправо */
+.bg-my .rmdp-arrow {
+  /* border: solid var(--rmdp-primary-green); */
+  border: solid #39566b;
+  border-width: 0 2px 2px 0;
+}
+.bg-my .rmdp-arrow-container:hover {
+  /* background-color: var(--rmdp-primary-green);
+  box-shadow: 0 0 3px var(--rmdp-secondary-green); */
+  background-color: #39566b;
+  box-shadow: 0 0 3px #253a49;
+}
+
+/* кнопка Close в нижней панели */
+.bg-my .rmdp-button:not(.rmdp-action-button) {
+  /* background-color: var(--rmdp-primary-green); */
+  background-color: #39566b;
+}
+.bg-my .rmdp-button:not(.rmdp-action-button):hover {
+  /* background-color: var(--rmdp-deselect-green); */
+  background-color: #253a49;
+}
+
+/* #region внутренняя часть календаря */
+/* область с датами */
+/* .bg-my .rmdp-day:not(.rmdp-deactive) - не понял - ниже тоже самое{ */
+  .bg-my .rmdp-day {
+    color: #39566b;
+  }
+
+/* выбранные даты */
+.bg-my .rmdp-day.rmdp-range {
+  color: white;
+  background-color: #39566b;
+}
+
+/* сегодняшняя дата квадрат */
+/* .bg-my .rmdp-day.rmdp-today {
+  background-color: blue;
+  font-size: 20px;
+  font-weight: bold;
+} */
+/* сегодняшняя дата внутри квадрата */
+.bg-my .rmdp-day.rmdp-today span {
+  background-color: #ebf1f6;
+  color: #39566b;
+  font-weight: bold;
+}
+
+/* кружок при наведении на дату (кроме скрытых и неактивных) */
+.bg-my .rmdp-day:not(.rmdp-day-hidden, .rmdp-disabled) span:hover {
+  background-color: #253a49;
+}
+
+/* деактивированные и неактивные даты */
+.bg-my .rmdp-day.rmdp-deactive,
+.bg-my .rmdp-day.rmdp-disabled {
+  color: rgb(187, 184, 184);
+}
+/* #endregion внутренняя часть календаря */
+/* #region НЕ ИСПОЛЬЗУЮТСЯ отдельные панели для выбора месяцев, часов, года */
+/* .bg-my .rmdp-month-picker {
+  background-color: #312f2f;
+  color: red;
+
+  border: 3px solid green;
+  background-color: green;
+}
+.bg-my .rmdp-year-picker {
+  background-color: #312f2f;
+  color: red;
+
+  border: 3px solid green;
+  background-color: green;
+}
+.bg-my .rmdp-time-picker {
+  border-top: 1px solid #8798ad;
+  margin-bottom: 0 !important;
+
+  border: 3px solid green;
+  background-color: green;
+}
+.bg-my .rmdp-time-picker div input {
+  background-color: #312f2f;
+  color: red;
+
+  border: 3px solid green;
+  background-color: green;
+} */
+/* #endregion отдельные панели для выбора месяцев, часов, года */
+/* #endregion Calendar */
+
+/* //////////////////////////// */
+/* #region Date input */
+/* контейнер в котором находится input календаря */
+/* .rmdp-container {
+  border: 3px solid green;
+  background-color: green;
+} */
+
 .DateRangeInput {
   padding: 0px;
 }
@@ -18,6 +193,7 @@
   border-radius: 0px;
   outline-width: 0;
 }
+/* #endregion Date input */
 
 @media (max-width: 850px) {
   .DateRangeInput > input {
