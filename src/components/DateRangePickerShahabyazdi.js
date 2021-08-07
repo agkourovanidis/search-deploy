@@ -21,7 +21,11 @@ function CustomInput({ openCalendar, value, dates }) {
       onFocus={openCalendar}
       placeholder="Check in - Check out"
 
-      readOnly
+      // readOnly
+      onChange={()=>console.log('changed')}
+
+      required
+
     />
     </div>
   );
@@ -116,7 +120,7 @@ function DateRangePickerShahabyazdi(props) {
         className="bg-my"
 
 
-        required
+        // required
 
         // mainPosition="bottom"
       >
@@ -141,6 +145,7 @@ function DateRangePickerShahabyazdi(props) {
           //   padding: '10px',
           //   margin: '8px'
           // }}
+          type='button'
           onClick={() => setDateRange([null, null])}
         >
           Clear Dates

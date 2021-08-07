@@ -217,6 +217,6 @@
 @media (max-width: 450px) {
   .searchResult__infoTop_div1 > span {
     /* margin: 0px; */
-    padding-top: 0px;
+    padding-top: 1px;
   }
 }

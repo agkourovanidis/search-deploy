@@ -88,16 +88,16 @@ export default class Header extends Component {
     return (
       <div className="header">
         <div className="header__icon">
-        <Link to="/">
-          <img
-            // className="header__icon"
-            className='header__icon_img'
-            //   src="https://i.pinimg.com/originals/3c/bf/be/3cbfbe148597341fa56f2f87ade90956.png"
-            src={logo}
-            alt=""
-            // height="70px"
-          />
-        </Link>
+          <Link to="/">
+            <img
+              // className="header__icon"
+              className="header__icon_img"
+              //   src="https://i.pinimg.com/originals/3c/bf/be/3cbfbe148597341fa56f2f87ade90956.png"
+              src={logo}
+              alt=""
+              // height="70px"
+            />
+          </Link>
         </div>
 
         <div className="header__center">
@@ -132,12 +132,15 @@ export default class Header extends Component {
                 {/* //вариант02 календаря */}
                 <div>
                   {/* <label htmlFor="dateRangePickShakh">Arrival-Departure Dates:</label> */}
-                  <DateRangePickerShahabyazdi funck={this.getDatesFromChild} required />
+                  <DateRangePickerShahabyazdi
+                    funck={this.getDatesFromChild}
+                    // required
+                  />
                   {/* <h6>SendStartDate: {JSON.stringify(this.state.rdrpStartDate)}</h6>
               <h6>SendEndDate: {JSON.stringify(this.state.rdrpEndDate)}</h6> */}
                 </div>
 
-                <div 
+                <div
                 // style={{
                 //   display:'flex',
                 //   border: '1px solid #ccc',
