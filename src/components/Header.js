@@ -163,8 +163,6 @@ export default class Header extends Component {
                   <button
                     className="btn-search"
                     id="btn-search"
-                    // className="btn-search"
-                    // disabled={true}
                   >
                     Search
                   </button>
