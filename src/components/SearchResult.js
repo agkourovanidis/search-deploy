@@ -2,9 +2,12 @@ import React from "react";
 import "./SearchResult.css";
 // import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 // import StarIcon from "@material-ui/icons/Star";
+import SwiperSlider from "./SwiperSlider";
 
 function SearchResult({
-  img,
+  // img,
+  images,
+
   location,
   category,
   title,
@@ -24,11 +27,18 @@ function SearchResult({
 }) {
   return (
     <div className="searchResult">
-      <img src={img} alt="" />
+      {images === null ? (
+        ""
+      ) : (
+        <SwiperSlider slides={images}
+          className='searchResult-swiper'
+        />
+      )}
+      {/* <img src={img} alt="" /> */}
       {/* <FavoriteBorderIcon className="searchResult__heart" /> */}
       <div className="searchResult__info">
         <div className="searchResult__infoTop">
-          <p  className="searchResult__infoTop_p">
+          <p className="searchResult__infoTop_p">
             {location}
           </p>
           <div className="searchResult__infoTop_div1">

@@ -1,0 +1,73 @@
+.swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* вариант выравнивает ровно по размеру */
+  /* display: block;
+    width: 400px;
+    height: 220px; */
+}
+
+/* #region naviagtion */
+.swiper-button-next, .swiper-button-prev {
+  transition: transform ease-in 0.55s;
+  opacity: 0.3;
+  transition: 0.55s opacity;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  color: black;
+  font-size: 16px;
+  font-weight: bolder;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  border: none;
+}
+
+.swiper-button-prev:after {
+  padding: 5px 0px 0px 7px;
+}
+.swiper-button-next:after {
+  padding: 5px 0px 0px 10px;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  opacity: 0.9;
+  transform: scale(1.1);
+}
+/* #endregion naviagtion */
+
+/* #region pagination */
+/* для использования dynamicBullets нужно закоментить */
+/* .swiper-pagination {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.swiper-pagination-bullet {
+  width: 5px;
+  height: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  opacity: 0.3;
+  background: white;
+}
+
+.swiper-pagination-bullet-active {
+  width: 7px;
+  height: 7px;
+  opacity: 0.9;  
+}
+/* #endregion pagination */
