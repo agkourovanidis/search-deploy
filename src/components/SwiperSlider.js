@@ -45,10 +45,10 @@ export default function SwiperSlider(props) {
         // centeredSlides={true}
         grabCursor={true}
         loop={true}
-        pagination={{
-          clickable: true,
-          // "dynamicBullets": true
-        }}
+        // pagination={{
+        //   // clickable: true,
+        //   "dynamicBullets": true
+        // }}
 
         navigation={true}
 
