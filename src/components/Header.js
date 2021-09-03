@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import logo from "../logo.png";
 
 export default class Header extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +28,9 @@ export default class Header extends Component {
       gstNumOfChildren: 0,
       gstStringAges: "99,99",
 
-      prces: [],
+      //// 15/08/21 - убрал, т.к. не использую, а полученные данные сразу передаю дальше,
+      //// 02/09/21 - вернул, делаю через prces, а не напрямую
+      prces: []
     };
 
     this.getDatesFromChild = this.getDatesFromChild.bind(this);
@@ -36,7 +39,12 @@ export default class Header extends Component {
 
   getDatesFromChild(startDate, endDate) {
     this.setState({ rdrpStartDate: startDate, rdrpEndDate: endDate });
+
+    //// 15/08/21 - убрал, т.к. не использую, а полученные данные сразу передаю дальше
+    //// 02/09/21 - вернул, делаю через prces, а не напрямую
     this.setState({ prces: [] }); //// здесь  обнуляю таблмцу с результатами поиска
+    //// послаем данные родителю
+    this.props.func(this.state.prces);
   }
 
   getDataFromGuests(numOfAdults, numOfChild, stringAges) {
@@ -45,7 +53,11 @@ export default class Header extends Component {
       gstNumOfChildren: numOfChild,
       gstStringAges: stringAges,
     });
-    this.setState({ prces: [] }); //// здесь  обнуляю таблмцу с результатами поиска
+    //// 15/08/21 - убрал, т.к. не использую, а полученные данные сразу передаю дальше
+    //// 02/09/21 - вернул, делаю через prces, а не напрямую
+      this.setState({ prces: [] }); //// здесь  обнуляю таблмцу с результатами поиска
+      //// послаем данные родителю
+      this.props.func(this.state.prces);
   }
 
   handleSubmit = (e) => {
@@ -60,13 +72,17 @@ export default class Header extends Component {
       chlds: this.state.gstNumOfChildren,
       p_sAges: this.state.gstStringAges,
     };
-    console.log(srchparams);
+    // console.log(srchparams);
     axios
       .post("Hotels/GetHotelPrices", srchparams)
       .then((response) => {
         // console.log(response);
+        //// 15/08/21 - убрал, т.к. не использую, а полученные данные сразу передаю дальше
+        //// 02/09/21 - вернул, делаю через prces, а не напрямую
         this.setState({ prces: response.data });
-        console.log(this.state);
+        // console.log('Header search result: ', response.data);
+        //// послаем данные родителю
+        this.props.func(this.state.prces);
       })
       .catch((err) => {
         console.log(err);
@@ -83,7 +99,9 @@ export default class Header extends Component {
   }
 
   render() {
-    const { prces } = this.state;
+    //// 15/08/21 - убрал, т.к. не использую, а полученные данные сразу передаю дальше
+    //// 02/09/21 - здесь не нужно возвращать
+    // const { prces } = this.state;
 
     return (
       <div className="header">
@@ -95,7 +113,7 @@ export default class Header extends Component {
               //   src="https://i.pinimg.com/originals/3c/bf/be/3cbfbe148597341fa56f2f87ade90956.png"
               src={logo}
               alt=""
-              // height="70px"
+            // height="70px"
             />
           </Link>
         </div>
@@ -116,6 +134,7 @@ export default class Header extends Component {
                     ref={(inpt) => {
                       this.nameInput = inpt;
                     }}
+                    defaultValue='Greece'
                   />
                 </div>
 
@@ -134,7 +153,7 @@ export default class Header extends Component {
                   {/* <label htmlFor="dateRangePickShakh">Arrival-Departure Dates:</label> */}
                   <DateRangePickerShahabyazdi
                     funck={this.getDatesFromChild}
-                    // required
+                  // required
                   />
                   {/* <h6>SendStartDate: {JSON.stringify(this.state.rdrpStartDate)}</h6>
               <h6>SendEndDate: {JSON.stringify(this.state.rdrpEndDate)}</h6> */}

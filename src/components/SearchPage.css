@@ -1,7 +1,8 @@
-.searchPage {
+.searchPage {    
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     /* height: fit-content; */
     
     /* background-color: #f0f0f7; */

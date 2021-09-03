@@ -22,7 +22,7 @@ function AddGuests(props) {
   };
 
   const setDataForParent = () => {
-    //// послаем данные родителю
+    //// посылаем данные родителю
     props.funk(numOfAdult, numOfChildren, stringChildrenAges + stringAdultAges);
   };
 
